@@ -1,6 +1,6 @@
 <ol>
   <li ng-repeat="item in items">
-    {{ $index }}
-    <button ng-click="onRemove({index: $index});">Remove Item</button>
+    <b>{{item.name}}</b> - {{ item.description }}
+    <button class="btn btn-danger" ng-click="onRemove({index: $index});">Don't want this one!</button>
   </li>
 </ol>

@@ -16,7 +16,8 @@
     <div class="form-group narrow-button">
       <button class="btn btn-primary" ng-click="nidCtrl.getMatchedMenuItems()">Narrow It Down For Me!</button>
     </div>
-
+    <div class="clearfix"></div>
+    <div>{{nidCtrl.NotFoundMessage}}</div>
     <!-- found-items should be implemented as a component -->
     <found-items items="nidCtrl.found" on-remove="nidCtrl.dontWantThisOne(index)"></found-items>
   </div>

@@ -12,7 +12,7 @@ function foundItemsDirective(){
     var ddo = {
         restricted: 'E',
         scope: {
-            Items: '<',
+            items: '<',
             onRemove: '&'
         },
         templateUrl: './foundItems.html'
@@ -25,11 +25,12 @@ function NarrowItDownController (menuSearchService){
     var nidCtrl = this;
     nidCtrl.found = [];
     nidCtrl.searchTerm = '';
+    nidCtrl.NotFoundMessage = null;
     nidCtrl.getMatchedMenuItems = function(){
         menuSearchService.getMatchedMenuItems(nidCtrl.searchTerm).then(function(items){
-              nidCtrl.found = items;  
-        });
-        console.log(nidCtrl.found);
+              nidCtrl.found = items;
+              nidCtrl.NotFoundMessage =items.length == 0 ? 'Nothing found' : null;
+        });        
     }
 
     nidCtrl.dontWantThisOne = function(index){
